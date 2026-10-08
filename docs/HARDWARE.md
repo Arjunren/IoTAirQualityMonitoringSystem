@@ -1,0 +1,15 @@
+# Hardware — IoTAirQualityMonitoringSystem
+
+## Parts and electrical limits
+ESP32 DevKit and MQ-135 gas module with 3.3 V-safe analog output. Power low-voltage modules from a suitable regulated supply, tie grounds together, and verify signal levels before connection. GPIO34 is input-only and ADC1 is used because ADC2 conflicts with Wi-Fi. Never apply more than 3.3 V to an ESP32 GPIO.
+
+| ESP32 pin | Connection | Requirement |
+|---|---|---|
+| ESP32 3V3 | sensor VCC | Verify module supply rating |
+| ESP32 GND | sensor GND | Common low-voltage ground |
+| GPIO34 (ADC1) | analog signal | Never exceed 3.3 V |
+
+Use a pull-down on GPIO14's driver input so the load remains off during boot. Low-voltage relays must not be connected directly to GPIO, and inductive loads need flyback protection.
+
+## Sensor specification and calibration
+The firmware accepts MQ-135 signal from 0 to 4095 ADC counts. Secondary value is reserved (none). MQ-135 output is a trend proxy, not PM2.5, CO2, or health-grade AQI. Use a multimeter and the sensor data sheet for the exact module revision.

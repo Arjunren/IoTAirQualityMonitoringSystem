@@ -1,0 +1,1 @@
+Air quality trend monitor is an ESP32 learning project using MQ-135 gas module with 3. 3 V-safe analog output. It measures MQ-135 signal and publishes validated telemetry over Wi-Fi and TLS MQTT for indoor air quality learners. It includes documented wiring, provisioning, simulation tests, and security guidance. Includes calibration, sensor checks.
